@@ -329,6 +329,7 @@ class AnormSpanStore(val db: DB,
           |WHERE t2.endpoint_service_name = {service} AND name <> ''
           |GROUP BY name
           |ORDER BY name
+          |LIMIT 10
         """.stripMargin)
         .on("service" -> service)
         .as(str("name") *)
