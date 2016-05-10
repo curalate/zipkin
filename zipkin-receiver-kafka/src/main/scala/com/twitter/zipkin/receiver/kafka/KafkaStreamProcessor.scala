@@ -18,7 +18,7 @@ case class KafkaStreamProcessor[T](
     try {
       stream.foreach { msg =>
         try {
-          Await.result(process(msg.message()))
+          //Await.result(process(msg.message()))
         } catch {
           case e: TProtocolException =>
             log.debug(s"malformed message: ${e.getMessage}")
