@@ -327,8 +327,6 @@ class AnormSpanStore(val db: DB,
           |FROM zipkin_spans t1
           |JOIN zipkin_annotations t2 ON (t1.trace_id = t2.trace_id and t1.id = t2.span_id)
           |WHERE t2.endpoint_service_name = {service} AND name <> ''
-          |GROUP BY name
-          |ORDER BY name
           |LIMIT 10
         """.stripMargin)
         .on("service" -> service)
